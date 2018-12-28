@@ -1,0 +1,339 @@
+body {
+    font-family: Helvetica, sans-serif;
+    padding-top: 7rem;
+}
+#header {
+    position: fixed;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    top: 0;
+    text-align: center;
+    width: 100%;
+    border-bottom: 1px solid #AAA;
+    background: white;
+    z-index: 1;
+}
+#logo {
+    width: 200px;
+    height: 50px;
+    background-image: url('../res/logo.png');
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    display: block;
+    flex: 1;
+    margin: 5px;
+    box-sizing: border-box;
+}
+#nav {
+    display: flex;
+    flex-flow: row;
+    width: 60%;
+}
+#user-panel {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+}
+
+.nav-link, .setting-link, .nav-inner {
+    text-decoration: none;
+    color: #AAA;
+    align-self: center;
+    text-align: center;
+    transition: color 0.1s ease-in-out;
+    box-sizing: border-box;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.nav-link, .nav-inner {
+    flex: 1;
+    padding: 5px 5px 15px 5px;
+    font-size: 0.8em;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    position: relative;;
+}
+
+.nav-container .nav-link {
+    font-size: 1em;
+}
+
+.nav-container {
+    position: absolute;
+    display: flex;
+    flex-flow: column;
+    opacity: 0;
+    z-index: -999;
+    background: white;
+    pointer-events: none;
+    box-sizing: border-box;
+    left: 0;
+    top: 100%;
+    overflow: hidden;
+    border: 1px solid #AAA;
+    transition: all 0.1s ease-in-out;
+    padding: 10px;
+}
+
+.nav-inner:hover .nav-container {   
+    opacity: 1;
+    height: auto;
+    pointer-events: all;
+}
+
+.setting-link {
+    padding: 35px;
+    height: 100%;
+    vertical-align: center;
+}
+
+.setting-link:before {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+  }
+
+.nav-link:hover, .setting-link:hover, .setting-link.active, .nav-link.active, .nav-inner.active {
+    color: #444;
+}
+
+#content {
+    padding: 20px;
+    box-sizing: border-box;
+    width: 60%;
+    margin: auto;
+    text-align: justify;
+}
+
+#breadcrumbs {
+    margin-top: 99px;
+    list-style: none;
+    padding: 10px;
+    display: block;
+}
+
+.breadcrumb-item {
+    display: inline-block;
+    padding-left: 5px;
+    font-size: 0.75em;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #666;
+}
+
+.breadcrumb-item:not(:last-child)::after {
+    border-style: solid;
+	border-width: 0.1em 0.1em 0 0;
+	content: '';
+	display: inline-block;
+	height: 0.45em;
+	left: 0.15em;
+	position: relative;
+	top: 0.15em;
+	transform: rotate(-45deg);
+	vertical-align: top;
+    width: 0.45em;
+    transform: rotateZ(45deg);
+}
+
+label {
+    display: block;
+    padding: 5px;
+    font-size: 0.75em;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #666;
+}
+
+input[type="text"] {
+    width: 100%;
+    font-size:18px;
+    padding:10px 10px 10px 5px;
+    margin-bottom: 40px;
+    display:block;
+    border:none;
+    border-bottom:1px solid #757575;
+    box-sizing: border-box;
+}
+
+input[type="text"]:focus{
+    outline:none;
+}
+
+button, input[type="submit"] {
+    padding: 5px;
+    font-size: 0.9em;
+    letter-spacing: 0.1em;
+    display: inline-block;
+    text-transform: uppercase;
+    color: #666;
+    padding: 10px 16px;
+    background-color: transparent;
+    border: 1px solid #666;
+    border-radius: 2px;
+    box-sizing: border-box;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.05s ease-in-out;
+}
+
+button:hover, input[type="submit"]:hover {
+    color: #FFF;
+    padding: 10px 16px;
+    background-color: #666;
+    border: 1px solid #666;
+}
+
+button:active, input[type="submit"]:active {
+    color: #FFF;
+    padding: 10px 16px;
+    background-color: #444;
+    border: 1px solid #444;
+}
+
+thead {
+    background: #444;
+}
+
+tbody tr:nth-child(even) {
+    background: #EEE;
+}
+
+th {
+    padding: 5px;
+    font-size: 0.9em;
+    letter-spacing: 0.075em;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: 200;
+    padding: 10px;
+    color: #BBB;
+}
+
+td {
+    padding: 5px;
+    font-size: 0.9em;
+    letter-spacing: 0.02em;
+    text-align: justify;
+    font-weight: 200;
+    padding: 15px;
+    color: #444;
+}
+
+td button {
+    display: block;
+    width: 100%;
+    max-width: 120px;
+}
+
+.iAction {
+    width: 120px;
+    padding: 10px;
+}
+
+.iStatus {
+    text-align: center;
+}
+
+.btnReview:hover, .btnAccept:hover {
+    color: #FFF;
+    padding: 10px 16px;
+    background-color: #6A6;
+    border: 1px solid #6A6;
+}
+
+.btnReview:active, .btnAccept:active{
+    color: #FFF;
+    padding: 10px 16px;
+    background-color: #494;
+    border: 1px solid #494;
+}
+
+.btnCancel:hover, .btnDecline:hover {
+    color: #FFF;
+    padding: 10px 16px;
+    background-color: #A66;
+    border: 1px solid #A66;
+}
+
+.btnCancel:active, .btnDecline:active{
+    color: #FFF;
+    padding: 10px 16px;
+    background-color: #944;
+    border: 1px solid #944;
+}
+
+.btnActive {
+    color: #6A6;
+    background-color: transparent;
+    border: 1px solid #6A6;
+}
+
+.btnInactive {
+    color: #AA6;
+    background-color: transparent;
+    border: 1px solid #AA6;
+}
+
+.btnActive:hover {
+    color: #FFF;
+    padding: 10px 16px;
+    background-color: #6A6;
+    border: 1px solid #6A6;
+}
+
+.btnActive:active{
+    color: #FFF;
+    padding: 10px 16px;
+    background-color: #494;
+    border: 1px solid #494;
+}
+
+.btnInactive:hover {
+    color: #FFF;
+    padding: 10px 16px;
+    background-color: #AA6;
+    border: 1px solid #AA6;
+}
+
+.btnInactive:active{
+    color: #FFF;
+    padding: 10px 16px;
+    background-color: #994;
+    border: 1px solid #994;
+}
+
+#btnPanel {
+    margin-bottom: 10px;
+}
+
+table {
+    width: 100%;
+    border: none;
+    border-collapse: collapse;
+}
+
+a {
+    color: #446;
+    transition: color 0.1s ease-in-out;
+}
+
+a:hover {
+    color: #37F;
+    transition: color 0.1s ease-in-out;
+}
+
+@media only screen and (max-width: 1400px) {
+    #content {
+        width: 80%;
+    }
+    #nav {
+        width: 60%;
+    }
+}
