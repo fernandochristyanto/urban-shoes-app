@@ -27,9 +27,9 @@
             <div class="nav-inner" nav-name="admin-panel">
                 Admin Panel
                 <div class="nav-container">
-                    <a href="" class="nav-link">Request New Item</a>
-                    <a href="" class="nav-link">Pending Items</a>
-                    <a href="" class="nav-link">Completed Items</a>
+                    <a href="{{route('admin.admin-panel.requestNewItem')}}" class="nav-link">Request New Item</a>
+                    <a href="{{route('admin.admin-panel.pendingItems')}}" class="nav-link">Pending Items</a>
+                    <a href="{{route('admin.admin-panel.completedItems')}}" class="nav-link">Completed Items</a>
                 </div>
             </div>
         </nav>
