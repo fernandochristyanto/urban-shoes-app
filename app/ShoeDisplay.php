@@ -11,6 +11,6 @@ class ShoeDisplay extends Model
     protected $fillable = ['shoe_id', 'article_Id', 'stsrc'];
 
     protected function shoes() {
-        return $this->hasOne('App\Shoe', 'shoe_id', 'id');
+        return $this->hasMany('App\Shoe', 'shoe_id', 'id');
     }
 }
