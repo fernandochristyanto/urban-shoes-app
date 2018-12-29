@@ -19,7 +19,8 @@ class CreateScrappedShoesTable extends Migration
             $table->text("store_url");
             $table->text("image_url");
             $table->integer("price");
-            $table->string("status");
+            $table->char("status", 1)->default('P');
+            $table->char('stsrc', 1)->default('A');
             $table->timestamps();
 
             $table->foreign("request_id")->references("id")->on("scrap_requests");

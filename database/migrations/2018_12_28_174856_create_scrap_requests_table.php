@@ -18,9 +18,7 @@ class CreateScrapRequestsTable extends Migration
             $table->string("name");
             $table->text("description");
             $table->string("approval_status");
-            $table->string("stsrc");
-            $table->string("user_in");
-            $table->string("user_up");
+            $table->char("stsrc", 1)->default('A');
             $table->timestamps();
         });
     }

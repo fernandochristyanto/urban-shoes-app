@@ -19,10 +19,12 @@ class CreateShoeShopsTable extends Migration
             $table->integer("shop_id")->unsigned();
             $table->string("seller");
             $table->integer("price");
+            $table->string("item_title");
             $table->text("store_url");
             $table->text("image_url");
+            $table->char('stsrc', 1)->default('A');
             $table->string("location")->nullable();
-            $table->string("rating");
+            $table->string("rating")->nullable();
             $table->timestamps();
 
             $table->foreign("shoe_id")->references("id")->on("shoes");

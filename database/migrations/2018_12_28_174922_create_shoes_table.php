@@ -19,7 +19,7 @@ class CreateShoesTable extends Migration
             $table->string("name");
             $table->text("description");
             $table->text("image_url");
-            $table->string("stsrc");
+            $table->char("stsrc", 1)->default('A');
             $table->timestamps();
 
             $table->foreign("category_id")->references("id")->on("categories");
