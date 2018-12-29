@@ -17,8 +17,9 @@ class CreateScrapRequestsTable extends Migration
             $table->increments('id');
             $table->string("name");
             $table->text("description");
-            $table->string("approval_status");
+            $table->char("approval_status", 1)->default('P');
             $table->char("stsrc", 1)->default('A');
+            $table->boolean('finalized')->default(false);
             $table->timestamps();
         });
     }
