@@ -241,72 +241,72 @@ td button {
     text-align: center;
 }
 
-.btnReview:hover, .btnAccept:hover {
+.btnOK:hover {
     color: #FFF;
     padding: 10px 16px;
     background-color: #6A6;
     border: 1px solid #6A6;
 }
 
-.btnReview:active, .btnAccept:active{
+.btnOK:active{
     color: #FFF;
     padding: 10px 16px;
     background-color: #494;
     border: 1px solid #494;
 }
 
-.btnCancel:hover, .btnDecline:hover {
+.btnNO:hover {
     color: #FFF;
     padding: 10px 16px;
     background-color: #A66;
     border: 1px solid #A66;
 }
 
-.btnCancel:active, .btnDecline:active{
+.btnNO:active{
     color: #FFF;
     padding: 10px 16px;
     background-color: #944;
     border: 1px solid #944;
 }
 
-.btnActive {
-    color: #6A6;
-    background-color: transparent;
-    border: 1px solid #6A6;
-}
-
-.btnInactive {
-    color: #AA6;
-    background-color: transparent;
-    border: 1px solid #AA6;
-}
-
-.btnActive:hover {
-    color: #FFF;
-    padding: 10px 16px;
-    background-color: #6A6;
-    border: 1px solid #6A6;
-}
-
-.btnActive:active{
-    color: #FFF;
-    padding: 10px 16px;
-    background-color: #494;
-    border: 1px solid #494;
-}
-
-.btnInactive:hover {
+.btnSecondary:hover {
     color: #FFF;
     padding: 10px 16px;
     background-color: #AA6;
     border: 1px solid #AA6;
 }
 
-.btnInactive:active{
+.btnSecondary:active{
     color: #FFF;
     padding: 10px 16px;
     background-color: #994;
     border: 1px solid #994;
+}
+
+.btnOK.wire {
+    color: #6A6;
+    background-color: transparent;
+    border: 1px solid #6A6;
+}
+
+.btnSecondary.wire {
+    color: #AA6;
+    background-color: transparent;
+    border: 1px solid #AA6;
+}
+
+.btnOK.wire:hover {
+    color: #FFF;
+    padding: 10px 16px;
+    background-color: #6A6;
+    border: 1px solid #6A6;
+}
+
+.btnSecondary.wire:hover {
+    color: #FFF;
+    padding: 10px 16px;
+    background-color: #AA6;
+    border: 1px solid #AA6;
 }
 
 #btnPanel {
