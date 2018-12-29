@@ -4,7 +4,8 @@
 @endsection
 
 @section('content')
-<form action="" method="post">
+<form action="{{route('scraprequest.store')}}" method="post">
+    {{csrf_field()}}
     <div class="input-group">
         <label for="item_name">Item Name</label>
         <input type="text" name="item_name" placeholder="e.g Yeezy 700 V2 Static">

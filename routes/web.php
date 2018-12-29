@@ -17,3 +17,7 @@ Route::group(['prefix' => 'admin'], function(){
     Route::get("/pendingItems",    'AdminController@pendingItems')->name('admin.admin-panel.pendingItems');
     Route::get("/completedItems",  'AdminController@completedItems')->name('admin.admin-panel.completedItems');
 });
+
+Route::group(['prefix' => 'ScrapRequest'], function(){
+    Route::post('/store', 'ScrapRequestController@store')->name('scraprequest.store');
+});

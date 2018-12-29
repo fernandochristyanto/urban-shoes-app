@@ -15,8 +15,8 @@ class CreateShoeDisplayTable extends Migration
     {
         Schema::create('shoe_display', function (Blueprint $table) {
             $table->increments('id');
-            $table->id('shoe_id')->unsigned();
-            $table->id('article_id')->unsigned();
+            $table->integer('shoe_id')->unsigned();
+            $table->integer('article_id')->unsigned();
             $table->char('stsrc', 1);
             $table->timestamps();
         });
