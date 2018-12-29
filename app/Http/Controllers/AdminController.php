@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\ScrapRequest;
 
 class AdminController extends Controller
 {
@@ -28,7 +29,14 @@ class AdminController extends Controller
     }
 
     public function pendingItems(){
-        return view('admin.admin-panel.pendingItems');
+        $scrap_requests = ScrapRequest::where([
+            ['stsrc', '<>', 'D'],
+            ['approval_status', '=', 'A'],
+            ['finalized', '=', false]
+        ])->get();
+        return view('admin.admin-panel.pendingItems', [
+            'scrap_requests' => $scrap_requests
+        ]);
     }
 
     public function requestNewItem(){
