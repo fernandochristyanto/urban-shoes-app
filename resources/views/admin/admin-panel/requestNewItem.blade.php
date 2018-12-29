@@ -8,15 +8,15 @@
     {{csrf_field()}}
     <div class="input-group">
         <label for="item_name">Item Name</label>
-        <input type="text" name="item_name" placeholder="e.g Yeezy 700 V2 Static">
+        <input type="text" name="name" placeholder="e.g Yeezy 700 V2 Static">
     </div>
     <div class="input-group">
         <label for="item_name">Item Description</label>
-        <input type="text" name="item_desc" placeholder="Short description of the item">
+        <input type="text" name="description" placeholder="Short description of the item">
     </div>
     <div class="input-group">
         <label for="item_name">Price Threshold</label>
-        <input type="text" name="item_price" placeholder="How much do you think the item should be worth?">
+        <input type="text" name="min_price_threshold" placeholder="How much do you think the item should be worth?">
     </div>
     <input type="submit" value="Request New Item">
 </form>

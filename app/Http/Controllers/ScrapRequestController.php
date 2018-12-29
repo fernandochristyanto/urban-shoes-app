@@ -10,9 +10,9 @@ class ScrapRequestController extends Controller
     //
     public function store(Request $request){
         $newScrapRequest = new ScrapRequest();
-        $newScrapRequest->name = $request->item_name;
-        $newScrapRequest->description = $request->item_desc;
-        $newScrapRequest->min_price_threshold = $request->item_price;
+        $newScrapRequest->name = $request->name;
+        $newScrapRequest->description = $request->description;
+        $newScrapRequest->min_price_threshold = $request->min_price_threshold;
         $newScrapRequest->approval_status = 'A';
         $newScrapRequest->stsrc = 'A';
         $newScrapRequest->finalized = false;
