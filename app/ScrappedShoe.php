@@ -9,5 +9,5 @@ class ScrappedShoe extends Model
     //
     protected $table = 'scrapped_shoes';
     protected $primaryKey = 'id';
-    protected $fillable = ['request_id', 'store_url', 'image_url', 'price', 'status', 'stsrc'];
+    protected $fillable = ['request_id', 'seller', 'item-title', 'store_url', 'image_url', 'price', 'location', 'rating', 'status', 'stsrc'];
 }
