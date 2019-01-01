@@ -21,9 +21,7 @@ class ScrapRequestApiController extends Controller
         ])->get();
 
         return json_encode([
-            'scrap_requests' => $scrap_requests,
-            'finalized' => $is_finalized,
-            "a" => $approval_status
+            'scrap_requests' => $scrap_requests
         ]);
     }
 }
