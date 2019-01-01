@@ -15,14 +15,14 @@ class CreateShoesTable extends Migration
     {
         Schema::create('shoes', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer("category_id")->unsigned();
+            //$table->integer("category_id")->unsigned();
             $table->string("name");
             $table->text("description");
-            $table->text("image_url");
+            $table->text("image_url")->nullable();
             $table->char("stsrc", 1)->default('A');
             $table->timestamps();
 
-            $table->foreign("category_id")->references("id")->on("categories");
+            //$table->foreign("category_id")->references("id")->on("categories");
         });
     }
 

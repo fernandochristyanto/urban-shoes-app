@@ -102,6 +102,7 @@ $(document).ready(function() {
     </thead>
     <tbody>
         @foreach ($scrapped_shoes[$shop->id] as $scrapped_shoe)
+        @if (!($scrapped_shoe->status == 'I' && (($scrap_request->approval_status == 'F' && $scrap_request->finalized == 1) || $scrap_request->approval_status == 'D')))
         <tr class="dataRow">
             <td class="iID" style="display: none">{{$scrapped_shoe->id}}</td>
             <td class="iShop">{{$scrapped_shoe->seller}}</td>
@@ -118,6 +119,7 @@ $(document).ready(function() {
             </td>
             @endif
         </tr>
+        @endif
         @endforeach
     </tbody>
 </table>

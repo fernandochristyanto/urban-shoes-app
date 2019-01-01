@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\ScrapRequest;
 use App\ScrappedShoe;
 use App\Shop;
+use App\Shoe;
+use DB;
 
 class ScrapRequestController extends Controller
 {
@@ -86,5 +88,42 @@ class ScrapRequestController extends Controller
         $scrap_request->finalized = $finalized;
         $scrap_request->stsrc = 'U';
         $scrap_request->save();
+
+        if($finalized == 1) {
+            $shoe = DB::table('shoes')->insertGetId([
+                'name' => $scrap_request->name,
+                'description' => $scrap_request->description,
+                'stsrc' => 'A',
+                'created_at' =>  \Carbon\Carbon::now(),
+                'updated_at' => \Carbon\Carbon::now()
+            ]);
+
+            $scrapped_shoes = ScrappedShoe::where([
+                ['request_id','=',$id],
+                ['status','=','A'],
+                ['stsrc','<>','D']
+            ])->get();
+
+            $insert_val = array();
+
+            foreach($scrapped_shoes as $scrap) {
+                $insert_val[] = array(
+                    'shoe_id'       => $shoe,
+                    'shop_id'       => $scrap->shop_id,
+                    'seller'        => $scrap->seller,
+                    'item_title'    => $scrap->item_title,
+                    'store_url'     => $scrap->store_url,
+                    'image_url'     => $scrap->image_url,
+                    'price'         => $scrap->price,
+                    'location'      => $scrap->location,
+                    'rating'        => $scrap->rating,
+                    'stsrc'         => 'A',
+                    'created_at' =>  \Carbon\Carbon::now(),
+                    'updated_at' => \Carbon\Carbon::now()
+                );
+            }
+
+            DB::table('shoe_shops')->insert($insert_val);
+        }
     }
 }
