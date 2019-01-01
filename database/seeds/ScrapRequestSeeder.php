@@ -15,7 +15,7 @@ class ScrapRequestSeeder extends Seeder
             'name' => 'Yeezy',
             'description' => 'Good adidas sneaker',
             'min_price_threshold' => 1200000,
-            'approval_status' => 'A',
+            'approval_status' => 'F',
             'stsrc' => 'A',
             'finalized' => false
         ]);
