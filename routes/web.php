@@ -28,4 +28,8 @@ Route::group(['prefix' => 'api', 'namespace' => 'Api'], function(){
     Route::group(['prefix' => 'scraprequest'], function(){
         Route::get('/', 'ScrapRequestApiController@get')->name('api.scraprequest.get');
     });
+
+    Route::group(['prefix' => 'shop'], function(){
+        Route::get('/', 'ShopApiController@get')->name('api.shop.get');
+    });
 });
