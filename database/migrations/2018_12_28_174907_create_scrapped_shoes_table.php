@@ -24,7 +24,7 @@ class CreateScrappedShoesTable extends Migration
             $table->integer("price");
             $table->string("location")->nullable();
             $table->string("rating")->nullable();
-            $table->char("status", 1)->default('P');
+            $table->char("status", 1)->default('A');
             $table->char('stsrc', 1)->default('A');
             $table->timestamps();
 
