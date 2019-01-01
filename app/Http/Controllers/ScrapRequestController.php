@@ -21,4 +21,19 @@ class ScrapRequestController extends Controller
 
         return response()->redirectToRoute('admin.home');
     }
+
+    public function getRequestsTable(Request $request){
+        $is_finalized = $_GET['finalized'];
+        $approval_status = $_GET['approval_status'];
+
+        $scrap_requests = ScrapRequest::where([
+            ['approval_status', '=', $approval_status],
+            ['finalized', '=', $is_finalized],
+            ['stsrc', '<>', 'D']
+        ])->get();
+
+        return view('admin.admin-panel._scrapRequestTable', [
+            'scrap_requests' => $scrap_requests
+        ]);
+    }
 }

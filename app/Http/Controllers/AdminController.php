@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\ScrapRequest;
+use App\Http\Helper\DataHelper;
 
 class AdminController extends Controller
 {
@@ -26,6 +27,12 @@ class AdminController extends Controller
 
     public function completedItems(){
         return view('admin.admin-panel.completedItems');
+    }
+
+    public function shoeRequests(){
+        return view('admin.admin-panel.scrapRequests', [
+            'approval_statuses' => DataHelper::getScrapApprovalStatuses()
+        ]);
     }
 
     public function pendingItems(){
