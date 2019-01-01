@@ -17,7 +17,6 @@ class CreateShoeShopsTable extends Migration
             $table->increments('id');
             $table->integer("shoe_id")->unsigned();
             $table->integer("shop_id")->unsigned();
-            $table->integer('marketplace_id')->unsigned();
             $table->string("seller");
             $table->integer("price");
             $table->string("item_title");
@@ -30,7 +29,6 @@ class CreateShoeShopsTable extends Migration
 
             $table->foreign("shoe_id")->references("id")->on("shoes");
             $table->foreign("shop_id")->references("id")->on("shops");
-            $table->foreign("marketplace_id")->references("id")->on("marketplaces");
         });
     }
 

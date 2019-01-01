@@ -16,7 +16,6 @@ class CreateScrappedShoesTable extends Migration
         Schema::create('scrapped_shoes', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('request_id')->unsigned();
-            $table->integer('marketplace_id')->unsigned();
             $table->integer('shop_id')->unsigned();
             $table->string("seller");
             $table->string("item_title");
@@ -30,7 +29,6 @@ class CreateScrappedShoesTable extends Migration
             $table->timestamps();
 
             $table->foreign("request_id")->references("id")->on("scrap_requests");
-            $table->foreign("marketplace_id")->references("id")->on("marketplaces");
             $table->foreign("shop_id")->references("id")->on("shops");       
         });
     }
