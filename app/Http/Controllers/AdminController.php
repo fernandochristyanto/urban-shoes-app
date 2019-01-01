@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\ScrapRequest;
+use App\News;
 use App\Http\Helper\DataHelper;
 
 class AdminController extends Controller
@@ -18,7 +19,7 @@ class AdminController extends Controller
     }
 
     public function news(){
-        return view('admin.news');
+        return view('admin.news', ['articles' => News::all()]);
     }
 
     public function search(){
