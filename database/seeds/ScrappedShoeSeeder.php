@@ -22,7 +22,7 @@ class ScrappedShoeSeeder extends Seeder
             'price' => 2000000,
             'location' => 'Bandung',
             'rating' => '4.6',
-            'status' => 'P',
+            'status' => 'A',
             'stsrc' => 'A'
         ]);
 
@@ -36,7 +36,7 @@ class ScrappedShoeSeeder extends Seeder
             'price' => 2000000,
             'location' => 'Bandung',
             'rating' => '4.4',
-            'status' => 'P',
+            'status' => 'A',
             'stsrc' => 'A'
         ]);
 
@@ -50,7 +50,7 @@ class ScrappedShoeSeeder extends Seeder
             'price' => 2400000,
             'location' => 'Jakarta',
             'rating' => '4.4',
-            'status' => 'P',
+            'status' => 'A',
             'stsrc' => 'A'
         ]);
 
@@ -64,7 +64,7 @@ class ScrappedShoeSeeder extends Seeder
             'price' => 2400000,
             'location' => 'Jakarta',
             'rating' => '4.4',
-            'status' => 'P',
+            'status' => 'A',
             'stsrc' => 'A'
         ]);
     }
