@@ -38,8 +38,8 @@
             </td>
         </tr>
         @empty
-        <tr class="dataRow" colspan="5">
-            No requests!
+        <tr class="dataRow">
+            <td colspan="5">No active scrap requests</td>
         </tr>
         @endforelse
     </tbody>

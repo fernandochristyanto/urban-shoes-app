@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
     <link rel="stylesheet" href="{{URL::asset('css/style.css')}}">
     <script src="{{URL::asset('js/jquery-3.3.1.min.js')}}"></script>
@@ -24,7 +25,7 @@
                 Admin Panel
                 <div class="nav-container">
                     <a href="{{route('admin.admin-panel.requestNewItem')}}" class="nav-link">Request New Item</a>
-                    <a href="{{route('admin.admin-panel.shoeRequests')}}" class="nav-link">Shoe Requests</a>
+                    <a href="{{route('admin.admin-panel.shoeRequests')}}" class="nav-link">View Requests</a>
                     <a href="{{route('admin.admin-panel.completedItems')}}" class="nav-link">Completed Items</a>
                 </div>
             </div>

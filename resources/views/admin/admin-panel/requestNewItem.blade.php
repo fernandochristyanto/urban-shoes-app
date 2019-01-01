@@ -18,6 +18,8 @@
         <label for="item_name">Price Threshold</label>
         <input type="text" name="min_price_threshold" placeholder="How much do you think the item should be worth?">
     </div>
-    <input type="submit" value="Request New Item">
+    <div class="input-group">
+        <input type="submit" value="Request New Item">
+    </div>
 </form>
 @endsection

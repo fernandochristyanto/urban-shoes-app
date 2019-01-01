@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\ScrapRequest;
+use App\ScrappedShoe;
+use App\Shop;
 
 class ScrapRequestController extends Controller
 {
@@ -35,5 +37,54 @@ class ScrapRequestController extends Controller
         return view('admin.admin-panel._scrapRequestTable', [
             'scrap_requests' => $scrap_requests
         ]);
+    }
+
+    public function getRequestDetailsTable(Request $request) {
+        $id             = $_GET['id'];
+        $scrap_request  = ScrapRequest::where([
+            ['id', '=', $id],
+            ['stsrc', '<>', 'D']
+        ])->get();
+
+        $scrapped_shoes_raw = ScrappedShoe::where([
+            ['request_id', '=', $id],
+            ['stsrc', '<>', 'D']
+        ])->get();
+
+        $shops = Shop::where([
+            ['stsrc', '<>', 'D']
+        ])->get();
+
+        foreach($scrapped_shoes_raw as $scrap) {
+            $scrapped_shoes[$scrap->shop_id][] = $scrap;
+        }
+
+        return view('admin.admin-panel.scrapData', [
+            'scrap_request' => $scrap_request[0],
+            'scrapped_shoes' => $scrapped_shoes,
+            'shops' => $shops
+        ]);
+    }
+
+    public function updateScrapStatus(Request $request){
+        $id     = $request->id;
+        $status = $request->status;
+
+        $scrap = ScrappedShoe::find($id);
+        $scrap->status = $status;
+        $scrap->stsrc = 'U';
+        $scrap->save();
+    }
+
+    public function updateRequestStatus(Request $request){
+        $id                 = $request->id;
+        $approval_status    = $request->approval_status;
+        $finalized          = $request->finalized;
+
+        $scrap_request  = ScrapRequest::find($id);
+        $scrap_request->approval_status = $approval_status;
+        $scrap_request->finalized = $finalized;
+        $scrap_request->stsrc = 'U';
+        $scrap_request->save();
     }
 }

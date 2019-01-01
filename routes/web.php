@@ -22,6 +22,9 @@ Route::group(['prefix' => 'admin'], function(){
 Route::group(['prefix' => 'ScrapRequest'], function(){
     Route::post('/store', 'ScrapRequestController@store')->name('scraprequest.store');
     Route::get('/requestsTable', 'ScrapRequestController@getRequestsTable')->name('_scraprequest.requeststable');
+    Route::get("/scrapData",  'ScrapRequestController@getRequestDetailsTable')->name('_scraprequest.requestdetails');
+    Route::post("/scrapData/updateScrapStatus",  'ScrapRequestController@updateScrapStatus')->name('_scraprequest.updatestatus');
+    Route::post("/scrapData/updateRequestStatus",  'ScrapRequestController@updateRequestStatus')->name('_scraprequest.updaterequeststatus');
 });
 
 Route::group(['prefix' => 'api', 'namespace' => 'Api'], function(){

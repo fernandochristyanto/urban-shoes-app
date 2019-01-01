@@ -2,6 +2,12 @@ body {
     font-family: Helvetica, sans-serif;
     padding-top: 7rem;
 }
+
+.uppercase {
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
 #header {
     position: fixed;
     display: flex;
@@ -151,7 +157,7 @@ label {
     color: #666;
 }
 
-input[type="text"] {
+input[type="text"], select {
     width: 100%;
     font-size:18px;
     padding:10px 10px 10px 5px;
@@ -160,9 +166,14 @@ input[type="text"] {
     border:none;
     border-bottom:1px solid #757575;
     box-sizing: border-box;
+    transform: all 0.1s ease-in-out;
 }
 
-input[type="text"]:focus{
+select:hover{
+    cursor: pointer;
+}
+
+input[type="text"]:focus, select:focus{
     outline:none;
 }
 
@@ -180,7 +191,7 @@ button, input[type="submit"] {
     box-sizing: border-box;
     outline: none;
     cursor: pointer;
-    transition: all 0.05s ease-in-out;
+    transition: all 0.1s ease-in-out;
 }
 
 button:hover, input[type="submit"]:hover {
@@ -195,6 +206,14 @@ button:active, input[type="submit"]:active {
     padding: 10px 16px;
     background-color: #444;
     border: 1px solid #444;
+}
+
+button:disabled, input[type="submit"]:disabled {
+    pointer-events: none;
+    cursor: default;
+    filter: grayscale(50%);
+    opacity: 0.5;
+    user-select: none;
 }
 
 thead {
@@ -241,6 +260,15 @@ td button {
     text-align: center;
 }
 
+.input-group {
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+.input-group.small {
+    width: 33%;
+}
+
 .btnOK:hover {
     color: #FFF;
     padding: 10px 16px;
@@ -276,7 +304,7 @@ td button {
     border: 1px solid #AA6;
 }
 
-.btnSecondary:active{
+.btnSecondary:active, .btnSecondary.wire:active{
     color: #FFF;
     padding: 10px 16px;
     background-color: #994;
@@ -307,6 +335,20 @@ td button {
     padding: 10px 16px;
     background-color: #AA6;
     border: 1px solid #AA6;
+}
+
+.btnOK.wire:active{
+    color: #FFF;
+    padding: 10px 16px;
+    background-color: #494;
+    border: 1px solid #494;
+}
+
+.btnNO.wire:active{
+    color: #FFF;
+    padding: 10px 16px;
+    background-color: #944;
+    border: 1px solid #944;
 }
 
 #btnPanel {
