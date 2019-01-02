@@ -23,7 +23,7 @@ class ScrapRequestController extends Controller
 
         $newScrapRequest->save();
 
-        return response()->redirectToRoute('admin.home');
+        return response()->redirectToRoute('home');
     }
 
     public function getRequestsTable(Request $request){
@@ -36,7 +36,7 @@ class ScrapRequestController extends Controller
             ['stsrc', '<>', 'D']
         ])->get();
 
-        return view('admin.admin-panel._scrapRequestTable', [
+        return view('user.admin-panel._scrapRequestTable', [
             'scrap_requests' => $scrap_requests
         ]);
     }
@@ -61,7 +61,7 @@ class ScrapRequestController extends Controller
             $scrapped_shoes[$scrap->shop_id][] = $scrap;
         }
 
-        return view('admin.admin-panel.scrapData', [
+        return view('user.admin-panel.scrapData', [
             'scrap_request' => $scrap_request[0],
             'scrapped_shoes' => $scrapped_shoes,
             'shops' => $shops

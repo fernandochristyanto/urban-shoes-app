@@ -10,15 +10,22 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get("/login", function() {
-    return view('login');
+Route::group(['namespace' => 'Auth'], function(){
+    Route::get('/logout', 'AuthController@logout')->name('logout');
+
+    Route::group(['middleware' => 'guest:web'], function(){
+        Route::get('/login','AuthController@login')->name('login');
+        Route::post('/login','AuthController@doLogin')->name('dologin');
+        Route::get('/register', 'AuthController@register')->name('register');
+        Route::post('/register', 'AuthController@doRegister')->name('doregister');
+    });
 });
-Route::get("/register", function() {
-    return view('register');
-});
+
+Route::get("/",     'UserController@home')->name('home');
+Route::get("/news",     'UserController@news')->name('news');
+Route::get("/discover",     'UserController@discover')->name('discover');
+Route::get("/search",     'UserController@search')->name('search');
 Route::group(['prefix' => 'admin'], function(){
-    Route::get("/home",     'AdminController@home')->name('admin.home');
-    Route::get("/news",     'AdminController@news')->name('admin.news');
     Route::get("/requestNewItem",  'AdminController@requestNewItem')->name('admin.admin-panel.requestNewItem');
     Route::get("/pendingItems",    'AdminController@pendingItems')->name('admin.admin-panel.pendingItems');
     Route::get("/completedItems",  'AdminController@completedItems')->name('admin.admin-panel.completedItems');

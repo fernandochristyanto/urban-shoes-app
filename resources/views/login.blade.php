@@ -41,17 +41,25 @@
                 <span id="logo" style="display: inline-block; flex: 1;"></span>
             </div>
             <br>
-            <form action="" method="post">
+            <form action="{{route('dologin')}}" method="post">
                 {{csrf_field()}}
                 <div class="input-group">
-                    <label for="username">Username</label>
-                    <input type="text" name="username" placeholder="">
+                    <label for="email">Email</label>
+                    <input type="text" name="email" placeholder="">
                 </div>
+                @if ($errors->has('email'))
+                    <span id="error" style="transform: translateY(-40px)">{{ $errors->first('email') }}</span>
+                @endif
                 <div class="input-group">
                     <label for="password">Password</label>
                     <input type="password" name="password" placeholder="">
                 </div>
-                <span id="error"></span>
+                @if ($errors->has('password'))
+                    <span id="error" style="transform: translateY(-40px)">{{ $errors->first('password') }}</span>
+                @endif
+                @if ($errors->has('InvalidCredential'))
+                    <span id="error">{{ $errors->first('InvalidCredential') }}</span>
+                @endif
                 <div class="input-group">
                     <input type="submit" value="Log In" style="width: 100%;">
                 </div>

@@ -10,28 +10,13 @@ use App\Http\Helper\DataHelper;
 class AdminController extends Controller
 {
     //
-    public function home(){
-        return view('admin.home');
-    }
-
-    public function discover(){
-        return view('admin.discover');
-    }
-
-    public function news(){
-        return view('admin.news', ['articles' => News::all()]);
-    }
-
-    public function search(){
-        return view('admin.search');
-    }
 
     public function completedItems(){
-        return view('admin.admin-panel.completedItems');
+        return view('user.admin-panel.completedItems');
     }
 
     public function shoeRequests(){
-        return view('admin.admin-panel.scrapRequests', [
+        return view('user.admin-panel.scrapRequests', [
             'approval_statuses' => DataHelper::getScrapApprovalStatuses()
         ]);
     }
@@ -42,12 +27,12 @@ class AdminController extends Controller
             ['approval_status', '=', 'A'],
             ['finalized', '=', false]
         ])->get();
-        return view('admin.admin-panel.pendingItems', [
+        return view('user.admin-panel.pendingItems', [
             'scrap_requests' => $scrap_requests
         ]);
     }
 
     public function requestNewItem(){
-        return view('admin.admin-panel.requestNewItem');
+        return view('user.admin-panel.requestNewItem');
     }
 }

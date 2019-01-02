@@ -9,6 +9,10 @@ class User extends Authenticatable
 {
     use Notifiable;
 
+    public function getAuthPassword() {
+        return $this->password;
+    }
+
     /**
      * The attributes that are mass assignable.
      *

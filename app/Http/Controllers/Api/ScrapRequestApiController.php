@@ -27,7 +27,7 @@ class ScrapRequestApiController extends Controller
     }
 
     public function store(Request $request){
-        $bodyContent = json_decode($request->getContent());
+        $bodyContent =  json_decode($request->getContent());
         /**
          * payload: {
          *    "<requestId>": [{

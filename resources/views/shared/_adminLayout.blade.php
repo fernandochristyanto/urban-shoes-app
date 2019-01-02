@@ -17,8 +17,8 @@
     <header id="header">
         <span id="logo"></span>
         <nav id="nav">
-            <a href="{{route('admin.home')}}" class="nav-link">Home</a>
-            <a href="{{route('admin.news')}}" class="nav-link">News</a>
+            <a href="{{route('home')}}" class="nav-link">Home</a>
+            <a href="{{route('news')}}" class="nav-link">News</a>
             <a href="" class="nav-link">Discover</a>
             <a href="" class="nav-link">Search</a>
             <div class="nav-inner" nav-name="admin-panel">
@@ -30,10 +30,17 @@
                 </div>
             </div>
         </nav>
-        <div id="user-panel">
-            <a href="" class="setting-link">Profile</a>
-            <a href="" class="setting-link">Log Out</a>
-        </div>
+        @guest
+            <div id="user-panel">
+                <a href="{{route('login')}}" class="setting-link">Login</a>
+            </div>
+        @endguest
+        @auth
+            <div id="user-panel">
+                <a href="" class="setting-link">Profile</a>
+                <a href="{{route('logout')}}" class="setting-link">Log Out</a>
+            </div>
+        @endauth
     </header>
 
     <div id="content">
