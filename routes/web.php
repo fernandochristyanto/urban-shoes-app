@@ -13,6 +13,7 @@
 
 Route::group(['prefix' => 'admin'], function(){
     Route::get("/home",     'AdminController@home')->name('admin.home');
+    Route::get("/news",     'AdminController@news')->name('admin.news');
     Route::get("/requestNewItem",  'AdminController@requestNewItem')->name('admin.admin-panel.requestNewItem');
     Route::get("/pendingItems",    'AdminController@pendingItems')->name('admin.admin-panel.pendingItems');
     Route::get("/completedItems",  'AdminController@completedItems')->name('admin.admin-panel.completedItems');
