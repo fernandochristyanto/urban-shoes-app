@@ -18,7 +18,7 @@
         <span id="logo"></span>
         <nav id="nav">
             <a href="{{route('admin.home')}}" class="nav-link">Home</a>
-            <a href="" class="nav-link">News</a>
+            <a href="{{route('admin.news')}}" class="nav-link">News</a>
             <a href="" class="nav-link">Discover</a>
             <a href="" class="nav-link">Search</a>
             <div class="nav-inner" nav-name="admin-panel">
