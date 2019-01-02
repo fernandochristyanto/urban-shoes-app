@@ -62,7 +62,7 @@ body {
     font-size: 0.8em;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    position: relative;;
+    position: relative;
 }
 
 .nav-container .nav-link {
@@ -79,6 +79,7 @@ body {
     pointer-events: none;
     box-sizing: border-box;
     left: 0;
+    right: 0;
     top: 100%;
     overflow: hidden;
     border: 1px solid #AAA;
