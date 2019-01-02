@@ -8,25 +8,25 @@
         <link rel="stylesheet" href="{{URL::asset('css/style.css')}}">
         <script src="{{URL::asset('js/jquery-3.3.1.min.js')}}"></script>
 
-        <title>Login</title>
+        <title>Register</title>
         <style>
             .login-modal {
                 box-shadow: 0px 0px 6px rgba(0,0,0,0.5);
                 padding: 10px;
                 box-sizing: border-box;
-                width: 360px;
+                width: 460px;
                 height: auto;
                 margin: auto;
                 position: relative;
-                top: 40px;
                 overflow: auto;
                 background: white;
             }
 
-            #error {
+            .error {
                 display: block;
                 color: red;
-                padding-left: 15px;
+                padding-left: 5px;
+                font-size: 0.75em;
             }
 
             body {
@@ -45,19 +45,31 @@
                 {{csrf_field()}}
                 <div class="input-group">
                     <label for="username">Username</label>
+                    <span class="error uppercase"></span>
                     <input type="text" name="username" placeholder="">
                 </div>
                 <div class="input-group">
+                    <label for="email">E-Mail</label>
+                    <span class="error uppercase"></span>
+                    <input type="email" name="email" placeholder="">
+                </div>
+                <div class="input-group">
                     <label for="password">Password</label>
+                    <span class="error uppercase"></span>
                     <input type="password" name="password" placeholder="">
+                </div>
+                <div class="input-group">
+                    <label for="password-confirm">Confirm Password</label>
+                    <span class="error uppercase"></span>
+                    <input type="password" name="password-confirm" placeholder="">
                 </div>
                 <span id="error"></span>
                 <div class="input-group">
-                    <input type="submit" value="Log In" style="width: 100%;">
+                    <input type="submit" value="Register" style="width: 100%;">
                 </div>
             </form>
             <br>
-            <a href="/register" style="float: right;">Don't have an account yet?</a>
+            <a href="/login" style="float: right;">Already have an account?</a>
             <br>
             <br>
         </div>

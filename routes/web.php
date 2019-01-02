@@ -13,6 +13,9 @@
 Route::get("/login", function() {
     return view('login');
 });
+Route::get("/register", function() {
+    return view('register');
+});
 Route::group(['prefix' => 'admin'], function(){
     Route::get("/home",     'AdminController@home')->name('admin.home');
     Route::get("/requestNewItem",  'AdminController@requestNewItem')->name('admin.admin-panel.requestNewItem');
