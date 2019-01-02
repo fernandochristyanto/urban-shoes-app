@@ -65,7 +65,7 @@
                 </div>
             </form>
             <br>
-            <a href="/register" style="float: right;">Don't have an account yet?</a>
+                <a href="{{route('register')}}" style="float: right;">Don't have an account yet?</a>
             <br>
             <br>
         </div>

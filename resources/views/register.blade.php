@@ -41,27 +41,37 @@
                 <span id="logo" style="display: inline-block; flex: 1;"></span>
             </div>
             <br>
-            <form action="" method="post">
+            <form action="{{route('doregister')}}" method="post">
                 {{csrf_field()}}
+
                 <div class="input-group">
-                    <label for="username">Username</label>
+                    <label for="email">Name</label>
                     <span class="error uppercase"></span>
-                    <input type="text" name="username" placeholder="">
+                    <input type="text" name="name" placeholder="">
+                    @if ($errors->has('name'))
+                        <span class="error" style="transform: translateY(-30px)">{{ $errors->first('name') }}</span>
+                    @endif
                 </div>
                 <div class="input-group">
                     <label for="email">E-Mail</label>
                     <span class="error uppercase"></span>
                     <input type="email" name="email" placeholder="">
+                    @if ($errors->has('email'))
+                        <span class="error" style="transform: translateY(-30px)">{{ $errors->first('email') }}</span>
+                    @endif
                 </div>
                 <div class="input-group">
                     <label for="password">Password</label>
                     <span class="error uppercase"></span>
                     <input type="password" name="password" placeholder="">
+                    @if ($errors->has('password'))
+                        <span class="error" style="transform: translateY(-30px)">{{ $errors->first('password') }}</span>
+                    @endif
                 </div>
                 <div class="input-group">
                     <label for="password-confirm">Confirm Password</label>
                     <span class="error uppercase"></span>
-                    <input type="password" name="password-confirm" placeholder="">
+                    <input type="password" name="password_confirmation" placeholder="">
                 </div>
                 <span id="error"></span>
                 <div class="input-group">

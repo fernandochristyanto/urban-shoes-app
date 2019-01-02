@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
+use App\User;
+use Carbon\Carbon;
 
 class AuthController extends Controller
 {
@@ -54,5 +56,44 @@ class AuthController extends Controller
     public function logout(){
         Auth::logout();
         return redirect()->route('home');
+    }
+
+
+    public function register(){
+        return view('register');
+    }
+
+    public function doRegister(Request $request){
+        $rules = [
+            'email' => 'required|email|unique:users,email',// ok
+            'password' => 'required|min:6|confirmed',
+            'name' => 'required'
+        ]; 
+
+        $messages = array(
+            'email' => 'Email must be filled and unique',
+            'password' => 'Password cannot be empty',
+            'name' => 'Name is required'
+        );
+        
+        $validation = Validator::make($request->all(), $rules);
+        if($validation->fails()) //Login fails (validation error)
+        {
+            return redirect()
+                ->back()
+                ->withInput($request->all())
+                ->withErrors($validation);
+        } 
+        else{
+            $new_user = new User();
+            $new_user->email = $request->email;
+            $new_user->name = $request->name;
+            $new_user->password = $request->password;
+            $new_user->role = 'member';
+            $new_user->created_at = Carbon::now();
+            $new_user->save();
+            Auth::login($new_user);
+            return redirect()->route('home');
+        }
     }
 }
