@@ -19,7 +19,9 @@ class UserController extends Controller
     }
 
     public function news(){
-        return view('user.news', ['articles' => News::all()]);
+        $articles = News::where([
+            ['stsrc', '<>', 'D']])->sortBy('created_at')->take(5);
+        return view('user.news', ['articles' => $articles]);
     }
 
     public function search(){

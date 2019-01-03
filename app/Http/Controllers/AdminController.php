@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\ScrapRequest;
-use App\News;
 use App\Http\Helper\DataHelper;
 
 class AdminController extends Controller

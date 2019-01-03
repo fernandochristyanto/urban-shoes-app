@@ -25,6 +25,7 @@ Route::group(['namespace' => 'Auth'], function(){
 
 Route::get("/",     'UserController@home')->name('home');
 Route::get("/news",     'UserController@news')->name('news');
+Route::get("/more-news",     'UserController@moreNews')->name('news.more');
 Route::get("/discover",     'UserController@discover')->name('discover');
 Route::get("/search",     'UserController@search')->name('search');
 Route::group(['prefix' => 'admin'], function(){
