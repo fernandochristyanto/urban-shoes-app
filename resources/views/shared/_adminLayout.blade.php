@@ -26,13 +26,17 @@
             <a href="{{route('home')}}" class="nav-link">Home</a>
             <a href="{{route('news')}}" class="nav-link">News</a>
             <a href="{{route('search')}}" class="nav-link">Search</a>
-            <div class="nav-inner" nav-name="admin-panel">
-                Admin Panel
-                <div class="nav-container">
-                    <a href="{{route('admin.admin-panel.requestNewItem')}}" class="nav-link">Request New Item</a>
-                    <a href="{{route('admin.admin-panel.shoeRequests')}}" class="nav-link">View Requests</a>
-                </div>
-            </div>
+            @auth
+                @if(Auth::user()->role == "admin")
+                    <div class="nav-inner" nav-name="admin-panel">
+                        Admin Panel
+                        <div class="nav-container">
+                            <a href="{{route('admin.admin-panel.requestNewItem')}}" class="nav-link">Request New Item</a>
+                            <a href="{{route('admin.admin-panel.shoeRequests')}}" class="nav-link">View Requests</a>
+                        </div>
+                    </div>
+                @endif
+            @endauth
         </nav>
         @guest
             <div id="user-panel">
