@@ -5,14 +5,15 @@
 
 @section('content')
 	<a href="{{route('news.create')}}">Add News</a>
-  @foreach ($articles as $article)
-    <div id="news-list">
-      <h1>{{$article->title}}</h1>
-      <p>{{$article->contents}}</p>
-    </div>
-    <button onclick="moreNews();">More News</button>
-  @endforeach
-
+	@if(isset($articles))
+  	@foreach ($articles as $article)
+	    <div id="news-list">
+	      <h1>{{$article->title}}</h1>
+	      <p>{{$article->contents}}</p>
+	    </div>
+  	@endforeach
+  	<button onclick="moreNews();">More News</button>
+  	@endif
 @endsection
 
 @section('js')

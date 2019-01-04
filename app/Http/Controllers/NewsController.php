@@ -9,7 +9,7 @@ class NewsController extends Controller
 {
     public function moreNews(Request $request){
     	$articles = News::where([
-            ['stsrc', '<>', 'D']])->sortBy('created_at')->slice($request->currTotal);
+            ['stsrc', '<>', 'D']])->sortBy('created_at')->slice($request->currTotal)->take(5);
     	return $articles;
     }
 
