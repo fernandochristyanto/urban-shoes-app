@@ -491,13 +491,15 @@ a:hover {
 }
 
 .txtLatest{
-  margin-top: 3%;
-  color: black;
+  margin-top: 5%;
+  color: #446;
+  font-size: 20pt;
 }
 
 .txtMV{
-  margin-top: 3%;
-  color: black;
+  color: #446;
+  font-size: 20pt;
+  margin-top: 10%;
 }
 
 .imagesOfLast{
@@ -511,7 +513,7 @@ a:hover {
 }
 
 #footer{
-  margin-top: 5%;
+  margin-top: 12%;
   background-color: #2d2d30;
   color: #fff;
 }
