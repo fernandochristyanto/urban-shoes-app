@@ -4,7 +4,7 @@
 @endsection
 
 @section('content')
-<form action="{{route('scraprequest.store')}}" method="post">
+<form action="{{route('scraprequest.store')}}" method="post" enctype="multipart/form-data">
     {{csrf_field()}}
     <div class="input-group">
         <label for="item_name">Item Name</label>
@@ -17,6 +17,10 @@
     <div class="input-group">
         <label for="item_name">Price Threshold</label>
         <input type="text" name="min_price_threshold" placeholder="How much do you think the item should be worth?">
+    </div>
+    <div class="input-group">
+        <label for="img_url">Shoe Image</label>
+        <input id="img_url" type="file" name="img_url">
     </div>
     <div class="input-group">
         <input type="submit" value="Request New Item">
