@@ -23,6 +23,12 @@ class ScrapRequestController extends Controller
 
         $newScrapRequest->save();
 
+        $destinationPath = public_path('/shoes/requests');
+        $request->file('img_url')->move($destinationPath, $newScrapRequest->id . '.'.$request->file('img_url')->getClientOriginalExtension());
+
+        $newScrapRequest->img_url = $newScrapRequest->id . '.'.$request->file('img_url')->getClientOriginalExtension();
+        $newScrapRequest->save();
+
         return response()->redirectToRoute('home');
     }
 
@@ -98,6 +104,16 @@ class ScrapRequestController extends Controller
                 'updated_at' => \Carbon\Carbon::now()
             ]);
 
+            // Update shoe image
+            $shoeRequestImgPath = public_path('/shoes/requests/'.$scrap_request->img_url);
+            $newImgPath = public_path('/shoes'.'/'.$shoe. '.' . explode('.', $scrap_request->img_url)[1]);
+
+            \File::copy($shoeRequestImgPath, $newImgPath);
+            
+            $inserted_shoe = Shoe::where('id', '=', $shoe)->first();
+            $inserted_shoe->image_url = $shoe . '.' . explode('.', $scrap_request->img_url)[1];
+            $inserted_shoe->save();
+            
             $scrapped_shoes = ScrappedShoe::where([
                 ['request_id','=',$id],
                 ['status','=','A'],
