@@ -9,14 +9,23 @@
     <div class="input-group">
         <label for="item_name">Item Name</label>
         <input type="text" name="name" placeholder="e.g Yeezy 700 V2 Static">
+        @if($errors->has('name'))
+            <span id="error" style="color: red">{{$errors->first('name')}}</span>
+        @endif
     </div>
     <div class="input-group">
         <label for="item_name">Item Description</label>
         <input type="text" name="description" placeholder="Short description of the item">
+        @if($errors->has('description'))
+            <span id="error" style="color: red">{{$errors->first('description')}}</span>
+        @endif
     </div>
     <div class="input-group">
         <label for="item_name">Price Threshold</label>
         <input type="text" name="min_price_threshold" placeholder="How much do you think the item should be worth?">
+        @if($errors->has('min_price_threshold'))
+            <span id="error" style="color: red">{{$errors->first('min_price_threshold')}}</span>
+        @endif
     </div>
     <div class="input-group">
         <label for="img_url">Shoe Image</label>
