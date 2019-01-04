@@ -480,3 +480,31 @@ a:hover {
         width: 60%;
     }
 }
+
+#carousel{
+  margin-top: 5%;
+}
+
+.txtLatest{
+  margin-top: 3%;
+  color: black;
+}
+
+.txtMV{
+  margin-top: 3%;
+  color: black;
+}
+
+.imagesOfLast{
+  margin-top: 3%;
+}
+
+.imagesOfMV{
+  margin-top: 3%;
+}
+
+#footer{
+  margin-top: 5%;
+  background-color: #2d2d30;
+  color: #fff;
+}
