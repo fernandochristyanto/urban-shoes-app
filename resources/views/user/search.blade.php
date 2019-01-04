@@ -80,6 +80,21 @@ $(document).ready(function() {
             });
         });
     });
+
+    $('#result').on('click', '.btnOK', e => {
+        const apiEndpoint = "{{route('search.view')}}";
+        const id = $(e.target).attr('itemid');
+        return $.ajax({
+            url: `${apiEndpoint}?id=${id}`,
+            method: 'GET',
+            success: data => {
+                window.location.href = `${apiEndpoint}?id=${id}`;
+            },
+            error: data => {
+                console.error(data);
+            }
+        });
+    });
 });
 </script>
 @endsection

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Shoe;
+use App\Shop;
 use App\ShoeShop;
 use App\Http\Helper\DataHelper;
 use DB;
@@ -69,5 +70,32 @@ class ShoeController extends Controller
         "));
 
         return $results;
+    }
+
+    public function getShoe(Request $request) {
+        $id             = $_GET['id'];
+        $shoe  = Shoe::where([
+            ['id', '=', $id],
+            ['stsrc', '<>', 'D']
+        ])->get();
+
+        $shoe_shops_raw = ShoeShop::where([
+            ['shoe_id', '=', $id],
+            ['stsrc', '<>', 'D']
+        ])->get();
+
+        $shops = Shop::where([
+            ['stsrc', '<>', 'D']
+        ])->get();
+
+        foreach($shoe_shops_raw as $shoe_shop) {
+            $shoe_shops[$shoe_shop->shop_id][] = $shoe_shop;
+        }
+
+        return view('user.viewItem', [
+            'shoe' => $shoe[0],
+            'shoe_shops' => $shoe_shops,
+            'shops' => $shops
+        ]);
     }
 }
