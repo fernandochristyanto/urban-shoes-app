@@ -49,7 +49,7 @@
                     <span class="error uppercase"></span>
                     <input type="text" name="name" placeholder="">
                     @if ($errors->has('name'))
-                        <span class="error" style="transform: translateY(-30px)">{{ $errors->first('name') }}</span>
+                        <span class="error" style="transform: translateY(-5px)">{{ $errors->first('name') }}</span>
                     @endif
                 </div>
                 <div class="input-group">
@@ -57,7 +57,7 @@
                     <span class="error uppercase"></span>
                     <input type="email" name="email" placeholder="">
                     @if ($errors->has('email'))
-                        <span class="error" style="transform: translateY(-30px)">{{ $errors->first('email') }}</span>
+                        <span class="error" style="transform: translateY(-5px)">{{ $errors->first('email') }}</span>
                     @endif
                 </div>
                 <div class="input-group">
@@ -65,7 +65,7 @@
                     <span class="error uppercase"></span>
                     <input type="password" name="password" placeholder="">
                     @if ($errors->has('password'))
-                        <span class="error" style="transform: translateY(-30px)">{{ $errors->first('password') }}</span>
+                        <span class="error" style="transform: translateY(-5px)">{{ $errors->first('password') }}</span>
                     @endif
                 </div>
                 <div class="input-group">
