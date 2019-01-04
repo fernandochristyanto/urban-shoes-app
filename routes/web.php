@@ -23,7 +23,8 @@ Route::group(['namespace' => 'Auth'], function(){
     });
 });
 
-Route::get("/",     'UserController@home')->name('home');
+//Route::get("/",     'UserController@home')->name('home');
+Route::get("/",     'HomeController@show')->name('home');
 Route::get("/news",     'UserController@news')->name('news');
 Route::get("/discover",     'UserController@discover')->name('discover');
 Route::get("/search",     'UserController@search')->name('search');

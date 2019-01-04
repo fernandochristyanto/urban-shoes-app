@@ -18,15 +18,15 @@
 
         <div class="carousel-inner">
           <div class="item active">
-            <img src={{asset('shoes/wp1.jpg')}} alt="A" style="width:1150px;">
+            <img src="assets/img/1.jpeg" alt="Los Angeles" style="width:100%;">
           </div>
 
           <div class="item">
-            <img src={{asset('shoes/wp2.jpg')}} alt="B" style="width:1150px;">
+            <img src="assets/img/2.jpeg" alt="Chicago" style="width:100%;">
           </div>
         
           <div class="item">
-            <img src={{asset('shoes/wp3.jpg')}} alt="C" style="width:1150px;">
+            <img src="assets/img/3.jpeg" alt="New york" style="width:100%;">
           </div>
         </div>
 
@@ -51,14 +51,21 @@
 
         <div class="imagesOfLast">
           
-              <div class="col-xs-12">
-                @foreach($shoes as $shoe)
-                  <div class="col-xs-4">
-                    <img src={{asset('shoes/' . $shoe->image_url)}} width="300px" style="margin-left:-10%;">
-                    <h3>{{$name = $shoe->name}}</h3>
-                  </div>
-                @endforeach
-              </div>
+            <div class="col-xs-4">
+              <img src="assets/img/5.jpeg" width="350">
+              <h3>Nike</h3>
+            </div>
+
+            <div class="col-xs-4">
+              <img src="assets/img/5.jpeg" width="350">
+              <h3>Adidas</h3>
+            </div>
+
+            <div class="col-xs-4"> 
+              <img src="assets/img/5.jpeg" width="350">
+              <h3>Puma</h3>
+            </div>
+        
         </div>    
     </div>
 
@@ -73,13 +80,19 @@
 
         <div class="imagesOfMV">
           
-            <div class="col-xs-12">
-              @foreach($shoes as $shoe)
-                <div class="col-xs-4">
-                  <img src={{asset('shoes/' . $shoe->image_url)}} width="300px" style="margin-left:-10%;">
-                  <h3>{{$name = $shoe->name}}</h3>
-                </div>
-              @endforeach
+            <div class="col-xs-4">
+              <img src="assets/img/5.jpeg" width="350">
+              <h3>Nike</h3>
+            </div>
+
+            <div class="col-xs-4">
+              <img src="assets/img/5.jpeg" width="350">
+              <h3>Adidas</h3>
+            </div>
+
+            <div class="col-xs-4">
+              <img src="assets/img/5.jpeg" width="350">
+              <h3>Puma</h3>
             </div>
         
         </div>    
@@ -91,7 +104,7 @@
       
       <div class="container">    
         <div id="contact" class="container-fluid bg-grey">
-          <h3 class="text-center" style="margin-left: -4%; ">CONTACT</h3>
+          <h2 class="text-center" style="margin-left: ">CONTACT</h2>
           <div class="row">
             <div class="col-sm-5">
               <p>Contact us and we'll get back to you within 24 hours.</p>
@@ -102,15 +115,15 @@
             <div class="col-sm-7 slideanim">
               <div class="row">
                 <div class="col-sm-6 form-group">
-                  <input class="form-control" id="name" name="name" placeholder="Name" type="text" required style="width:80%;">
+                  <input class="form-control" id="name" name="name" placeholder="Name" type="text" required>
                 </div>
                 <div class="col-sm-6 form-group">
-                  <input class="form-control" id="email" name="email" placeholder="Email" type="email" required style="margin-left:-25%;">
+                  <input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
                 </div>
               </div>
-              <textarea class="form-control" id="comments" name="comments" placeholder="Comment" rows="5" style="width:88%;"></textarea><br>
+              <textarea class="form-control" id="comments" name="comments" placeholder="Comment" rows="5"></textarea><br>
               <div class="row">
-                <div class="col-sm-12 form-group" style="margin-left: -11%;">
+                <div class="col-sm-12 form-group">
                   <button class="btn btn-default pull-right" type="submit">Send</button>
                 </div>
               </div>
