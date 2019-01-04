@@ -8,12 +8,11 @@
     <link rel="stylesheet" href="{{URL::asset('css/style.css')}}">
     <script src="{{URL::asset('js/jquery-3.3.1.min.js')}}"></script>
     
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
+    
     @yield('css')
     @yield('js')
 
@@ -25,16 +24,18 @@
         <nav id="nav">
             <a href="{{route('home')}}" class="nav-link">Home</a>
             <a href="{{route('news')}}" class="nav-link">News</a>
-            <a href="{{route('discover')}}" class="nav-link">Discover</a>
             <a href="{{route('search')}}" class="nav-link">Search</a>
-            <div class="nav-inner" nav-name="admin-panel">
-                Admin Panel
-                <div class="nav-container">
-                    <a href="{{route('admin.admin-panel.requestNewItem')}}" class="nav-link">Request New Item</a>
-                    <a href="{{route('admin.admin-panel.shoeRequests')}}" class="nav-link">View Requests</a>
-                    <a href="{{route('admin.admin-panel.completedItems')}}" class="nav-link">Completed Items</a>
-                </div>
-            </div>
+            @auth
+                @if(Auth::user()->role == "admin")
+                    <div class="nav-inner" nav-name="admin-panel">
+                        Admin Panel
+                        <div class="nav-container">
+                            <a href="{{route('admin.admin-panel.requestNewItem')}}" class="nav-link">Request New Item</a>
+                            <a href="{{route('admin.admin-panel.shoeRequests')}}" class="nav-link">View Requests</a>
+                        </div>
+                    </div>
+                @endif
+            @endauth
         </nav>
         @guest
             <div id="user-panel">

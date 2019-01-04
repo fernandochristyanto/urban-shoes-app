@@ -38,6 +38,7 @@ Route::get("/discover",     'UserController@discover')->name('discover');
 Route::group(['prefix' => 'search'], function() {
     Route::get("/",     'UserController@search')->name('search');
     Route::get("/q",     'ShoeController@query')->name('search.query');
+    Route::get("/v",     'ShoeController@getShoe')->name('search.view');
 });
 
 Route::group(['prefix' => 'admin'], function(){

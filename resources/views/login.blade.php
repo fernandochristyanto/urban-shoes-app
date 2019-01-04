@@ -48,14 +48,14 @@
                     <input type="text" name="email" placeholder="">
                 </div>
                 @if ($errors->has('email'))
-                    <span id="error" style="transform: translateY(-40px)">{{ $errors->first('email') }}</span>
+                    <span id="error" style="transform: translateY(-10px)">{{ $errors->first('email') }}</span>
                 @endif
                 <div class="input-group">
                     <label for="password">Password</label>
                     <input type="password" name="password" placeholder="">
                 </div>
                 @if ($errors->has('password'))
-                    <span id="error" style="transform: translateY(-40px)">{{ $errors->first('password') }}</span>
+                    <span id="error" style="transform: translateY(-10px)">{{ $errors->first('password') }}</span>
                 @endif
                 @if ($errors->has('InvalidCredential'))
                     <span id="error">{{ $errors->first('InvalidCredential') }}</span>
