@@ -44,13 +44,13 @@ class NewsController extends Controller
     }
 
     public function updateNews(Request $request){
-    	News::where('id', '=', $request->id)->update(
-    		['title' => $request->title],
-    		['contents' => $request->contents],
-    		['updated_at' => Carbon::now()],
-    		['stsrc' => 'U'],
-    		['img_url' => $request->id . '.'.$request->file('img_url')->getClientOriginalExtension()]
-    	);
+    	News::where('id', '=', $request->id)->update([
+    		'title' => $request->title,
+    		'contents' => $request->contents,
+    		'updated_at' => Carbon::now(),
+    		'stsrc' => 'U',
+    		'img_url' => $request->id . '.'.$request->file('img_url')->getClientOriginalExtension()
+			]);
 
     	$destinationPath = public_path('/shoes/article-thumbnail');
         $request->file('img_url')->move($destinationPath, $request->id . '.'.$request->file('img_url')->getClientOriginalExtension());
