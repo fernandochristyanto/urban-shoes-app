@@ -27,7 +27,13 @@ Route::group(['namespace' => 'Auth'], function(){
 Route::get("/",     'HomeController@show')->name('home');
 Route::get("/news",     'UserController@news')->name('news');
 Route::get("/discover",     'UserController@discover')->name('discover');
-Route::get("/search",     'UserController@search')->name('search');
+
+Route::group(['prefix' => 'search'], function() {
+    Route::get("/",     'UserController@search')->name('search');
+    Route::get("/q",     'ShoeController@query')->name('search.query');
+    Route::get("/v",     'ShoeController@getShoe')->name('search.view');
+});
+
 Route::group(['prefix' => 'admin'], function(){
     Route::get("/requestNewItem",  'AdminController@requestNewItem')->name('admin.admin-panel.requestNewItem');
     Route::get("/pendingItems",    'AdminController@pendingItems')->name('admin.admin-panel.pendingItems');
