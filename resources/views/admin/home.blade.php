@@ -71,7 +71,6 @@
 
 </div>
 
-
 <div class="mostViewed">
     
     <div class="container">
