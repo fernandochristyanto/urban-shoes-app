@@ -596,8 +596,13 @@ img {
     }
 }
 
+#myCarousel{
+    width: 100%;
+}
+
 #carousel{
   margin-top: 5%;
+
 }
 
 .txtLatest{
@@ -612,10 +617,12 @@ img {
 
 .imagesOfLast{
   margin-top: 3%;
+  margin-left: 7%;
 }
 
 .imagesOfMV{
   margin-top: 3%;
+  margin-left: 7%;
 }
 
 #footer{
@@ -623,3 +630,4 @@ img {
   background-color: #2d2d30;
   color: #fff;
 }
+
