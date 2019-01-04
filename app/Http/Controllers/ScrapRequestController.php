@@ -106,8 +106,10 @@ class ScrapRequestController extends Controller
 
             // Update shoe image
             $shoeRequestImgPath = public_path('/shoes/requests/'.$scrap_request->img_url);
-            rename($shoeRequestImgPath, public_path('/shoes'.'/'.$shoe. '.' . explode('.', $scrap_request->img_url)[1]));
+            $newImgPath = public_path('/shoes'.'/'.$shoe. '.' . explode('.', $scrap_request->img_url)[1]);
 
+            \File::copy($shoeRequestImgPath, $newImgPath);
+            
             $inserted_shoe = Shoe::where('id', '=', $shoe)->first();
             $inserted_shoe->image_url = $shoe . '.' . explode('.', $scrap_request->img_url)[1];
             $inserted_shoe->save();

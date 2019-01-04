@@ -17,6 +17,7 @@ class ScrapRequestSeeder extends Seeder
             'min_price_threshold' => 1200000,
             'approval_status' => 'F',
             'stsrc' => 'A',
+            'img_url' => '1.jpg',
             'finalized' => false
         ]);
 
@@ -26,6 +27,7 @@ class ScrapRequestSeeder extends Seeder
             'min_price_threshold' => 1200000,
             'approval_status' => 'A',
             'stsrc' => 'A',
+            'img_url' => '2.jpg',
             'finalized' => false
         ]);
 
@@ -35,6 +37,7 @@ class ScrapRequestSeeder extends Seeder
             'min_price_threshold' => 700000,
             'approval_status' => 'A',
             'stsrc' => 'A',
+            'img_url' => '3.jpg',
             'finalized' => false
         ]);
 
@@ -44,6 +47,7 @@ class ScrapRequestSeeder extends Seeder
             'min_price_threshold' => 700000,
             'approval_status' => 'A',
             'stsrc' => 'A',
+            'img_url' => '4.jpg',
             'finalized' => false
         ]);
 
@@ -53,6 +57,7 @@ class ScrapRequestSeeder extends Seeder
             'min_price_threshold' => 500000,
             'approval_status' => 'A',
             'stsrc' => 'A',
+            'img_url' => '5.jpg',
             'finalized' => false
         ]);
     }

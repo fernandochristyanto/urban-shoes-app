@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Shoe;
 
 class DatabaseSeeder extends Seeder
 {
@@ -15,5 +16,6 @@ class DatabaseSeeder extends Seeder
         $this->call(ShopSeeder::class);
         $this->call(ScrapRequestSeeder::class);
         $this->call(ScrappedShoeSeeder::class);
+        $this->call(ShoeSeeder::class);
     }
 }
