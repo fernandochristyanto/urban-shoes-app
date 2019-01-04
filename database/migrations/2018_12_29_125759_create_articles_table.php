@@ -18,6 +18,7 @@ class CreateArticlesTable extends Migration
             $table->string('title');
             $table->text('contents');
             $table->integer('author_id');
+            $table->string('img_url');
             $table->char('stsrc', 1);
             $table->timestamps();
         });

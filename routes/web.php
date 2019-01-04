@@ -26,7 +26,13 @@ Route::group(['namespace' => 'Auth'], function(){
 //Route::get("/",     'UserController@home')->name('home');
 Route::get("/",     'HomeController@show')->name('home');
 Route::get("/news",     'UserController@news')->name('news');
-Route::get("/more-news",     'UserController@moreNews')->name('news.more');
+Route::get("/more-news",     'NewsController@moreNews')->name('news.more');
+Route::get("/create-news",     'NewsController@createNews')->name('news.create');
+Route::get("/view-news",     'NewsController@viewNews')->name('news.view');
+Route::get("/edit-news",     'NewsController@editNews')->name('news.edit');
+Route::post("/add-news",     'NewsController@addNews')->name('news.add');
+Route::post("/delete-news",     'NewsController@deleteNews')->name('news.delete');
+Route::post("/update-news",     'NewsController@updateNews')->name('news.update');
 Route::get("/discover",     'UserController@discover')->name('discover');
 
 Route::group(['prefix' => 'search'], function() {
