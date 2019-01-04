@@ -267,7 +267,11 @@ input[type="checkbox"]:checked:after{
     transition: all 0.25s ease-in-out;
 }
 
-.loader.inactive{
+#no-data {
+    transition: all 0.25s ease-in-out;
+}
+
+.inactive{
     opacity: 0;
     transform: scale(2);
 }
@@ -585,6 +589,12 @@ img {
     flex-flow: row wrap;
     align-items: flex-start;
     justify-content: center;
+}
+
+.search-item-card p {
+    font-size: 0.9em;
+    font-style: italic;
+    padding: 10px;
 }
 
 @media only screen and (max-width: 1400px) {

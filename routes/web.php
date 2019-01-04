@@ -28,7 +28,12 @@ Route::get("/",     'HomeController@show')->name('home');
 Route::get("/news",     'UserController@news')->name('news');
 Route::get("/more-news",     'UserController@moreNews')->name('news.more');
 Route::get("/discover",     'UserController@discover')->name('discover');
-Route::get("/search",     'UserController@search')->name('search');
+
+Route::group(['prefix' => 'search'], function() {
+    Route::get("/",     'UserController@search')->name('search');
+    Route::get("/q",     'ShoeController@query')->name('search.query');
+});
+
 Route::group(['prefix' => 'admin'], function(){
     Route::get("/requestNewItem",  'AdminController@requestNewItem')->name('admin.admin-panel.requestNewItem');
     Route::get("/pendingItems",    'AdminController@pendingItems')->name('admin.admin-panel.pendingItems');
