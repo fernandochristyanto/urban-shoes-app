@@ -25,14 +25,12 @@
         <nav id="nav">
             <a href="{{route('home')}}" class="nav-link">Home</a>
             <a href="{{route('news')}}" class="nav-link">News</a>
-            <a href="{{route('discover')}}" class="nav-link">Discover</a>
             <a href="{{route('search')}}" class="nav-link">Search</a>
             <div class="nav-inner" nav-name="admin-panel">
                 Admin Panel
                 <div class="nav-container">
                     <a href="{{route('admin.admin-panel.requestNewItem')}}" class="nav-link">Request New Item</a>
                     <a href="{{route('admin.admin-panel.shoeRequests')}}" class="nav-link">View Requests</a>
-                    <a href="{{route('admin.admin-panel.completedItems')}}" class="nav-link">Completed Items</a>
                 </div>
             </div>
         </nav>
