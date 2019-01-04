@@ -18,6 +18,7 @@ class CreateScrapRequestsTable extends Migration
             $table->string("name");
             $table->text("description");
             $table->integer("min_price_threshold");
+            $table->text("img_url")->nullable();
             $table->char("approval_status", 1)->default('P');
             $table->char("stsrc", 1)->default('A');
             $table->boolean('finalized')->default(false);
