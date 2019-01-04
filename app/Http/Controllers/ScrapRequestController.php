@@ -30,23 +30,6 @@ class ScrapRequestController extends Controller
         'description' => "Description is required",
         'min_price_threshold' => "Price threshold is required and must be numeric" );
 
-
-/*
-        $newScrapRequest = $request->all();
-        $rules = [
-            'description' => 'required'
-
-        ];
-        $validation = Validator::make($newScrapRequest, $rules);
-        $messages = array('description' => "Check the description again" );
-
-        $newScrapRequest = $request->all();
-        $rules = [
-            'min_price_threshold' => 'required|numeric'
-        ];
-        $validation = Validator::make($newScrapRequest, $rules);
-        $messages = array('min_price_threshold' => "input must be numeric" );
-*/
         if($validation->fails())
         {
             return redirect()
@@ -56,7 +39,10 @@ class ScrapRequestController extends Controller
         }   
 
 
-
+        $newScrapRequest = new ScrapRequest();
+        $newScrapRequest->name = $request->name;
+        $newScrapRequest->description = $request->description;
+        $newScrapRequest->min_price_threshold = $request->min_price_threshold;
         $newScrapRequest->approval_status = 'A';
         $newScrapRequest->stsrc = 'A';
         $newScrapRequest->finalized = false;
