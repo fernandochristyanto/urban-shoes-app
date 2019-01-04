@@ -19,8 +19,8 @@
         <nav id="nav">
             <a href="{{route('home')}}" class="nav-link">Home</a>
             <a href="{{route('news')}}" class="nav-link">News</a>
-            <a href="" class="nav-link">Discover</a>
-            <a href="" class="nav-link">Search</a>
+            <a href="{{route('discover')}}" class="nav-link">Discover</a>
+            <a href="{{route('search')}}" class="nav-link">Search</a>
             <div class="nav-inner" nav-name="admin-panel">
                 Admin Panel
                 <div class="nav-container">

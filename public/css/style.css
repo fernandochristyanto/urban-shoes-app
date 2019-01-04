@@ -254,7 +254,27 @@ input[type="checkbox"]:checked:before{
 
 input[type="checkbox"]:checked:after{
   left: 75px;
-  background: #6AD;
+  background: #3498db;
+}
+
+.loader:not(.inactive) {
+    border: 4px solid transparent;
+    border-top: 4px solid #3498db;
+    border-radius: 50%;
+    width: 2em;
+    height: 2em;
+    animation: spin 1s linear infinite;
+    transition: all 0.25s ease-in-out;
+}
+
+.loader.inactive{
+    opacity: 0;
+    transform: scale(2);
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
 
 button, input[type="submit"] {
@@ -343,6 +363,8 @@ td button {
 .input-group {
     box-sizing: border-box;
     padding: 10px;
+    position: relative;
+    overflow: auto;
 }
 
 .input-group.checkboxes {
@@ -470,6 +492,99 @@ a:hover {
     box-sizing: border-box;
     overflow: auto;
     background: white;
+    transition: left 1s cubic-bezier(0,0.9,0.995,1), opacity 1s ease-in-out;
+}
+
+.side.out {
+    left: -20%;
+    opacity: 0;
+}
+
+.search-item-card {
+    overflow: auto;
+    display: inline-block;
+    position: relative;
+    box-shadow: 0px 0px 6px rgba(0,0,0,0.5);
+    border-radius: 2px;
+    box-sizing: border-box;
+    flex: 0 0 240px;
+    margin:10px;
+    transition: top 1s ease-out, opacity 1.2s ease-in-out;
+    top: 0;
+    opacity: 1;
+}
+
+.search-item-card::after {
+    content: "";
+    flex: auto;
+}
+
+.item-card-header {
+    width: 180px;
+    display: block;
+    float: left;
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+.item-card {
+    font-size: 0.9em;
+    display: inline-block;
+}
+
+.item-card.name {
+    width: 100%;
+}
+.item-card.rating {
+    display: block;
+    float:right;
+    width: 40px;
+    font-size: 1.1em;
+    padding-right: 10px;
+    position: relative;
+    top: 1.1em;
+}
+.item-card.rating:after{
+    content: '★';
+}
+
+.item-card-rating-container {
+    display: flex;
+    height: 100%;
+    position: relative;
+}
+
+img {
+    max-width: 100%;
+    max-height: auto;
+}
+
+.item-card-footer {
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.item-card.price {
+    margin-bottom: 10px;
+}
+
+.item-card-footer button {
+    width: 100%;
+}
+
+.item-card p {
+    padding: 0 10px;
+    font-size: 0.9em;
+    font-style: italic;
+}
+
+.flexbox {
+    display: flex;
+    width: 100%;
+    flex-flow: row wrap;
+    align-items: flex-start;
+    justify-content: center;
 }
 
 @media only screen and (max-width: 1400px) {
