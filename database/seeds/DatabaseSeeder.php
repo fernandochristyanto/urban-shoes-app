@@ -17,5 +17,6 @@ class DatabaseSeeder extends Seeder
         $this->call(ScrapRequestSeeder::class);
         $this->call(ScrappedShoeSeeder::class);
         $this->call(ShoeSeeder::class);
+        $this->call(ArticleSeeder::class);
     }
 }
