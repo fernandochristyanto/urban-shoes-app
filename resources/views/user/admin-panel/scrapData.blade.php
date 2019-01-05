@@ -101,26 +101,28 @@ $(document).ready(function() {
         </tr>
     </thead>
     <tbody>
-        @foreach ($scrapped_shoes[$shop->id] as $scrapped_shoe)
-        @if (!($scrapped_shoe->status == 'I' && (($scrap_request->approval_status == 'F' && $scrap_request->finalized == 1) || $scrap_request->approval_status == 'D')))
-        <tr class="dataRow">
-            <td class="iID" style="display: none">{{$scrapped_shoe->id}}</td>
-            <td class="iShop">{{$scrapped_shoe->seller}}</td>
-            <td class="iLink"><a href="{{$scrapped_shoe->store_url}}">{{$scrapped_shoe->store_url}}</a></td>
-            <td class="iPrice">{{$scrapped_shoe->price}}</td>
-            <td class="iRating">{{$scrapped_shoe->rating}}</td>
-            @if($scrap_request->approval_status == 'F' && $scrap_request->finalized == 0)
-            <td class="iAction">
-                @if($scrapped_shoe->status == 'A')
-                    <button class="btnOK wire btnActive" newstatus="I">Active</button>
-                @elseif($scrapped_shoe->status == 'I')
-                    <button class="btnSecondary wire btnActive" newstatus="A">Inactive</button>
+        @if(array_key_exists ($shop->id , $scrapped_shoes))
+            @foreach ($scrapped_shoes[$shop->id] as $scrapped_shoe)
+                @if (!($scrapped_shoe->status == 'I' && (($scrap_request->approval_status == 'F' && $scrap_request->finalized == 1) || $scrap_request->approval_status == 'D')))
+                <tr class="dataRow">
+                    <td class="iID" style="display: none">{{$scrapped_shoe->id}}</td>
+                    <td class="iShop">{{$scrapped_shoe->seller}}</td>
+                    <td class="iLink"><a href="{{$scrapped_shoe->store_url}}" target="_blank">{{$scrapped_shoe->store_url}}</a></td>
+                    <td class="iPrice">{{$scrapped_shoe->price}}</td>
+                    <td class="iRating">{{$scrapped_shoe->rating}}</td>
+                    @if($scrap_request->approval_status == 'F' && $scrap_request->finalized == 0)
+                    <td class="iAction">
+                        @if($scrapped_shoe->status == 'A')
+                            <button class="btnOK wire btnActive" newstatus="I">Active</button>
+                        @elseif($scrapped_shoe->status == 'I')
+                            <button class="btnSecondary wire btnActive" newstatus="A">Inactive</button>
+                        @endif
+                    </td>
+                    @endif
+                </tr>
                 @endif
-            </td>
-            @endif
-        </tr>
+            @endforeach
         @endif
-        @endforeach
     </tbody>
 </table>
 @endforeach

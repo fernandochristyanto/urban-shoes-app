@@ -55,11 +55,11 @@ class ScrapRequestApiController extends Controller
             }
 
             // Change request status
-            $scrap_request = ScrapRequest::where('id', '=', $request_id);
-            $scrap_request->approval_status = 'F';
-            $scrap_request->stsrc = 'U';
-            $scrap_request->finalized = false;
-            $scrap_request->save();
+            ScrapRequest::where('id', '=', $request_id)->update([
+                'approval_status' => 'F',
+                'stsrc' => 'U',
+                'finalized' => false
+                ]);
         }
 
         return json_encode([
