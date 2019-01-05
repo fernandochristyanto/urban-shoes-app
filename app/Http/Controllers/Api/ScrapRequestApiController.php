@@ -53,6 +53,13 @@ class ScrapRequestApiController extends Controller
 
                 $scrapshoe->save();
             }
+
+            // Change request status
+            $request = ScrapRequest::where('id', '=', $request_id);
+            $request->approval_status = 'F';
+            $request->stsrc = 'U';
+            $request->finalized = false;
+            $request->save();
         }
 
         return json_encode([
