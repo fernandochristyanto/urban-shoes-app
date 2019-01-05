@@ -39,7 +39,7 @@
             <td class="iImage"><img src="{{$shoe_shop->image_url}}" alt=""></td>
             <td class="iPrice">{{$shoe_shop->price}}</td>
             <td class="iRating">{{$shoe_shop->rating}}</td>
-            <td class="iLink"><a href="{{$shoe_shop->store_url}}">{{$shoe_shop->store_url}}</a></td>
+            <td class="iLink"><a href="{{$shoe_shop->store_url}}" target="_blank">Go to shop</a></td>
         </tr>
         @endforeach
     </tbody>

@@ -44,7 +44,7 @@
         @endguest
         @auth
             <div id="user-panel">
-                <a href="" class="setting-link">Profile</a>
+                {{-- <a href="" class="setting-link">Profile</a> --}}
                 <a href="{{route('logout')}}" class="setting-link">Log Out</a>
             </div>
         @endauth
